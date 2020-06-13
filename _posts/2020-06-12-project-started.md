@@ -1,18 +1,25 @@
 ---
 layout: post
-title:  2nd Iteration
+title:  Project started
 ---
 
-I've built a second iteration of my Peltier water cooler. This time it's a more modular approach with a radiator and fans right on the board.
+When I needed a venting solution for my CO2 laser cutter, I bought myself an exhaust fan from eBay and build a wooden frame around it, that would fit in the window of my basement.
 
-![2nd iteration of my cooler]({{ site.url }}/images/2nd_chiller_1.jpg)
+![Plain fan]({{ site.url }}/images/fan.jpg)
 
-My third set of cooling blocks is still on it's way and one of the four Peltier elemnts turns out to be broken. So with thee working TEC1-12706 elements
-I'm able to cool the water flow down by about 0.5 &#8451;.
+Next I build a box shaped enclosure around the fan opening, cut a hole in the middle of the front sheet and connected the exhaust hose of the laser cutter to it.
+This kind of worked, but the air flow wasn't great.
 
-So now I've moved the old radiators into the primary cooling circuit, inbetween the outlet of the laser tube and the water tank.
+Than I came up with the idea that I couls share the window fan between the laser cutters exhaust and its water cooling system.
+I rearranged the hose inlet and added sokle radiators.
 
-![2nd iteration of my cooler]({{ site.url }}/images/2nd_chiller_2.jpg)
+![Fan with radiators]({{ site.url }}/images/radiator.jpg)
 
-This setup does not leak any water, but it does somehow leak quite a bit of air into the system. Luckily my water pump is strong enough to push out the air
-within a few seconds.
+While thts water cooling systen didn't leak out any water, it leaked in a lot of air.
+So I desided to make my cooling system more compact and reduce the number of couplings to a minimum (see [DIYWaterChiller[](https://hotwolf.github.io/DIYWaterChiller/)).
+
+So my next task is to redesign the fans enclosure to only fit the exhaust hose, but this time with a better airflow.
+Since my local community wood workshop is closed due to corona orders, I plan to use 3D printed parts.
+And this repository is the storage space for my designs.
+
+
