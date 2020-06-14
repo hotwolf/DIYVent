@@ -1,6 +1,6 @@
 <a name="TOP"></a>
 # DIYVent
-This is a vent cover for a 100 exhaust hose.
+This is a vent cover for a 100mm exhaust hose.
 
 ![Main Assembly](assemblies/main_assembled.png)
 
