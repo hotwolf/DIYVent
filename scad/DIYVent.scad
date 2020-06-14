@@ -31,29 +31,44 @@
 //#                                                                             #
 //###############################################################################
 
+//! This is a vent cover for a 100 exhaust hose.
+
 include <NopSCADlib/lib.scad>
 //include <NopSCADlib/core.scad>
-include <NopSCADlib/vitamins/ball_bearings.scad>
+include <NopSCADlib/vitamins/screws.scad>
 
 //$explode=1;
 //$vpr = [70,0,110];
 //$vpt = [0, 0, 0];
    
-//! This is a filament guide for Prusa MK3(S) printers . 
-// ![inside](doc/DIYLB.gif?raw=true)
+//Global variables
+$innerWidth    = 270;   //inner width of the base
+$outerWidth    = 300;   //outer width of the base
+$height        = 135;   //height without hose connector
+$hcInnerWidth  =  96;   //inner diameter of the hose connector
+$hcOuterWidth  = 100;   //outer diameter of the hose connector
+$hcHeight      =  20;   //height of the hose connector
 
-
+$screwPositions = [[142,142],[-142,142],[-142,-142],[142,-142],
+                   [142,40],[142,-40],
+                   [-142,40],[-142,-40],
+                   [40,142],[40,-142],
+                   [-40,142],[-40,-142]];
+ 
+$screwType = M5_pan_screw;
+    
 //Wooden frame
 module frame() {
     
     color("brown")
     difference() {
-        translate([0,0,-1]) cube([31,31,2], center=true);
-        translate([0,0,-1]) cube([27,27,4], center=true);
+        translate([0,0,-10]) cube([310,310,20], center=true);
+        translate([0,0,-10]) cube([270,270,40], center=true);
     }    
 }
 
-//Molds
+//Repeating shapes
+//Basic mold
 module mold(height=13.5,lowerWidth=27,upperWidth=10) {
     Points = [
         [ lowerWidth/2,           lowerWidth/2,      0 ],          //0
@@ -80,31 +95,125 @@ module mold(height=13.5,lowerWidth=27,upperWidth=10) {
     }
 }
 
+//Inner mold
+module innerMold(){
+    mold(height     = $height,
+         lowerWidth = $innerWidth,
+         upperWidth = $hcInnerWidth);
+}
 
+//Outer mold
+module outerMold(){
+    mold(height     = $height,
+         lowerWidth = $outerWidth,
+         upperWidth = $hcOuterWidth);
+}
 
+//Ring
+module ring(innerWidth=98,outerWidth=100,height=20) {
+    //Local variables
+    thickness = outerWidth-innerWidth; //wall thickness
+    cylHeight = height-(thickness/2);  //height of the cylunder shapes
+    
+    difference() {
+        union() {
+            cylinder(cylHeight,d=outerWidth);
+            translate([0,0,cylHeight]) rotate_extrude() 
+            translate([(innerWidth/2)+(thickness/4),0.0]) circle(d=thickness/2);
+        }
+        translate([0,0,-1]) cylinder(cylHeight+2,d=innerWidth);
+    }
+}
+        
+//Full vent shape
+module vent_full_stl () {
+//    stl("Full shape");
+    
+    //Local variables
+    washerDiameter = washer_diameter(screw_washer($screwType));
+//    washerDiameter = washer_diameter(M5_washer);
+   
+    color(pp1_colour)
+    union() {
+    
+        //Main body
+        difference() {
+            union() {
+                outerMold();
+                for(pos=$screwPositions) {
+                      translate([pos[0],pos[1],0]) ring(innerWidth=washerDiameter,
+                                                        outerWidth=washerDiameter+4,
+                                                        height=10);
+                }                
+             }
+            union () {
+                innerMold();
+                cylinder($height+1,d=$hcInnerWidth);
+                //translate([0,0,-5]) cube([$outerWidth,$outerWidth,10], center=true);
+                for(pos=$screwPositions) {
+                     translate([pos[0],pos[1],5])  screw_countersink($screwType);
+                     translate([pos[0],pos[1],5])  cylinder(50,d=washerDiameter);
+                     translate([pos[0],pos[1],-1]) cylinder(50,r=screw_radius($screwType));
+                }                
+            }     
+        }
+ 
+        //Hose connector
+        translate([0,0,$height]) ring(innerWidth=$hcInnerWidth,
+                                      outerWidth=$hcOuterWidth,
+                                      height=$hcHeight);
 
+        //Fins
+        intersection() {
+            union() {
+                for(angle=[0:90:360]) {
+                    rotate([0,0,angle]) translate([$hcInnerWidth/2,-2,0]) cube([$innerWidth,4,$height]);
+                }
+                     for(angle=[0:30:360]) {
+                    rotate([0,0,angle]) translate([$hcInnerWidth/2,-1,0]) cube([$innerWidth,2,$height]);
+                }
+            }
+            innerMold();
+        }
+    }
+}
 
+//Vent corner shape
+module vent_corner_stl () {
+    stl("vent_corner");
+    
+    intersection() {
+        vent_full_stl();
+        cube([500,500,500]);
+    }
+}
 
-
-//! Push three ball bearings onto the printed part. 
-
+//! Glue all four corners of the vent cover together 
+//! Screw the cover against the wooden frame 
 module main_assembly() {
     pose([70, 0, 110], [0,0,0])
     assembly("main") {
 
- 
+        //Cover
+        for(angle=[0:90:360]) {
+            rotate([0,0,angle]) explode(d=10) vent_corner_stl();
+        }
+
+        //Screws
+        for(pos=$screwPositions) {
+            translate([pos[0],pos[1],5]) explode(50) screw_and_washer($screwType, 20);
+        }
     }
 }
 
 if($preview) {
     
-    
-    
-    
    frame(); 
-   mold(); 
-    
-    
+//   innerMold(); 
+//   outerMold(); 
+//   ring();  
+//    vent_full_stl();
+//    vent_corner_stl();
     
    main_assembly();
 }

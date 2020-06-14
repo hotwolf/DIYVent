@@ -1,0 +1,23 @@
+[
+    {
+        "count": 1, 
+        "name": "main_assembly", 
+        "big": null, 
+        "assemblies": {}, 
+        "routed": {}, 
+        "printed": {
+            "vent_corner.stl": {
+                "count": 5, 
+                "colour": "[0, 0.572549, 0]"
+            }
+        }, 
+        "vitamins": {
+            "screw(M5_pan_screw, 20): Screw M5 pan x 20mm": {
+                "count": 12
+            }, 
+            "washer(M5_washer): Washer  M5 x 10mm x 1mm": {
+                "count": 12
+            }
+        }
+    }
+]

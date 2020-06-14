@@ -1,0 +1,3 @@
+{
+    "vent_corner.stl": 79.635
+}
