@@ -22,8 +22,8 @@ This is a vent cover for a 100 exhaust hose.
 | &nbsp;&nbsp;12&nbsp; |  &nbsp;&nbsp;12&nbsp; | &nbsp;&nbsp; Washer  M5 x 10mm x 1mm |
 | &nbsp;&nbsp;24&nbsp; | &nbsp;&nbsp;24&nbsp; | &nbsp;&nbsp;Total vitamins count |
 |  | | **3D printed parts** |
-| &nbsp;&nbsp;5&nbsp; |  &nbsp;&nbsp;5&nbsp; | &nbsp;&nbsp;vent_corner.stl |
-| &nbsp;&nbsp;5&nbsp; | &nbsp;&nbsp;5&nbsp; | &nbsp;&nbsp;Total 3D printed parts count |
+| &nbsp;&nbsp;4&nbsp; |  &nbsp;&nbsp;4&nbsp; | &nbsp;&nbsp;vent_corner.stl |
+| &nbsp;&nbsp;4&nbsp; | &nbsp;&nbsp;4&nbsp; | &nbsp;&nbsp;Total 3D printed parts count |
 
 [Top](#TOP)
 
@@ -39,7 +39,7 @@ This is a vent cover for a 100 exhaust hose.
 
 ### 3D Printed parts
 
-| 5 x vent_corner.stl |
+| 4 x vent_corner.stl |
 |---|
 | ![vent_corner.stl](stls/vent_corner.png) 
 

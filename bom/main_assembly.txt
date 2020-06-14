@@ -4,4 +4,4 @@ Vitamins:
  12 Washer  M5 x 10mm x 1mm
 
 Printed:
-  5 vent_corner.stl
+  4 vent_corner.stl

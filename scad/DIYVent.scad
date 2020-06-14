@@ -166,10 +166,10 @@ module vent_full_stl () {
         //Fins
         intersection() {
             union() {
-                for(angle=[0:90:360]) {
+                for(angle=[0:90:270]) {
                     rotate([0,0,angle]) translate([$hcInnerWidth/2,-2,0]) cube([$innerWidth,4,$height]);
                 }
-                     for(angle=[0:30:360]) {
+                     for(angle=[0:30:330]) {
                     rotate([0,0,angle]) translate([$hcInnerWidth/2,-1,0]) cube([$innerWidth,2,$height]);
                 }
             }
@@ -195,7 +195,7 @@ module main_assembly() {
     assembly("main") {
 
         //Cover
-        for(angle=[0:90:360]) {
+        for(angle=[0:90:270]) {
             rotate([0,0,angle]) explode(d=10) vent_corner_stl();
         }
 
