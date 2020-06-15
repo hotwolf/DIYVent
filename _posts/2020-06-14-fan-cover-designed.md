@@ -3,7 +3,7 @@ layout: post
 title:  Fan cover designed
 ---
 
-The new design of my fan cover is dome.
+The new design of my fan cover is done.
 
 ![Fan cover]({{ site.url }}/images/2020-06-14-fan_cover.png)
 
