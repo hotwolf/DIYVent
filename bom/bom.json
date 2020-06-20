@@ -11,16 +11,16 @@
                 "colour": "[0, 0.572549, 0]"
             }, 
             "frame_fin.stl": {
-                "count": 1, 
+                "count": 4, 
                 "colour": "[0, 0.572549, 0]"
             }
         }, 
         "vitamins": {
-            "screw(M5_pan_screw, 20): Screw M5 pan x 20mm": {
-                "count": 12
+            "screw(No6_screw, 20): Screw No6 pan wood x 20mm": {
+                "count": 20
             }, 
-            "washer(M5_washer): Washer  M5 x 10mm x 1mm": {
-                "count": 12
+            "washer(M4_washer): Washer  M4 x 9mm x 0.8mm": {
+                "count": 20
             }
         }
     }

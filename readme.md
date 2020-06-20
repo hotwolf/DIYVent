@@ -18,13 +18,13 @@ This is a vent cover for a 100mm exhaust hose.
 | <span style="writing-mode: vertical-rl; text-orientation: mixed;">Main</span> | <span style="writing-mode: vertical-rl; text-orientation: mixed;">TOTALS</span> |  |
 |---:|---:|:---|
 |  | | **Vitamins** |
-| &nbsp;&nbsp;12&nbsp; |  &nbsp;&nbsp;12&nbsp; | &nbsp;&nbsp; Screw M5 pan x 20mm |
-| &nbsp;&nbsp;12&nbsp; |  &nbsp;&nbsp;12&nbsp; | &nbsp;&nbsp; Washer  M5 x 10mm x 1mm |
-| &nbsp;&nbsp;24&nbsp; | &nbsp;&nbsp;24&nbsp; | &nbsp;&nbsp;Total vitamins count |
+| &nbsp;&nbsp;20&nbsp; |  &nbsp;&nbsp;20&nbsp; | &nbsp;&nbsp; Screw No6 pan wood x 20mm |
+| &nbsp;&nbsp;20&nbsp; |  &nbsp;&nbsp;20&nbsp; | &nbsp;&nbsp; Washer  M4 x 9mm x 0.8mm |
+| &nbsp;&nbsp;40&nbsp; | &nbsp;&nbsp;40&nbsp; | &nbsp;&nbsp;Total vitamins count |
 |  | | **3D printed parts** |
-| &nbsp;&nbsp;1&nbsp; |  &nbsp;&nbsp;1&nbsp; | &nbsp;&nbsp;frame_fin.stl |
+| &nbsp;&nbsp;4&nbsp; |  &nbsp;&nbsp;4&nbsp; | &nbsp;&nbsp;frame_fin.stl |
 | &nbsp;&nbsp;4&nbsp; |  &nbsp;&nbsp;4&nbsp; | &nbsp;&nbsp;vent_corner.stl |
-| &nbsp;&nbsp;5&nbsp; | &nbsp;&nbsp;5&nbsp; | &nbsp;&nbsp;Total 3D printed parts count |
+| &nbsp;&nbsp;8&nbsp; | &nbsp;&nbsp;8&nbsp; | &nbsp;&nbsp;Total 3D printed parts count |
 
 [Top](#TOP)
 
@@ -34,13 +34,13 @@ This is a vent cover for a 100mm exhaust hose.
 ### Vitamins
 |Qty|Description|
 |---:|:----------|
-|12| Screw M5 pan x 20mm|
-|12| Washer  M5 x 10mm x 1mm|
+|20| Screw No6 pan wood x 20mm|
+|20| Washer  M4 x 9mm x 0.8mm|
 
 
 ### 3D Printed parts
 
-| 1 x frame_fin.stl | 4 x vent_corner.stl |
+| 4 x frame_fin.stl | 4 x vent_corner.stl |
 |---|---|
 | ![frame_fin.stl](stls/frame_fin.png) | ![vent_corner.stl](stls/vent_corner.png) 
 
@@ -49,8 +49,9 @@ This is a vent cover for a 100mm exhaust hose.
 ### Assembly instructions
 ![main_assembly](assemblies/main_assembly.png)
 
-Glue all four corners of the vent cover together 
-Screw the cover against the wooden frame 
+Glue all four corners of the vent cover together.
+Screw the cover against the wooden frame.
+Screw fins against the inside of the wooden frame 
 
 ![main_assembled](assemblies/main_assembled.png)
 

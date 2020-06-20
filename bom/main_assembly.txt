@@ -1,8 +1,8 @@
 main_assembly:
 Vitamins:
- 12 Screw M5 pan x 20mm
- 12 Washer  M5 x 10mm x 1mm
+ 20 Screw No6 pan wood x 20mm
+ 20 Washer  M4 x 9mm x 0.8mm
 
 Printed:
-  1 frame_fin.stl
+  4 frame_fin.stl
   4 vent_corner.stl
