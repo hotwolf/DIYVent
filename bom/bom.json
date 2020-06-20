@@ -9,6 +9,10 @@
             "vent_corner.stl": {
                 "count": 4, 
                 "colour": "[0, 0.572549, 0]"
+            }, 
+            "frame_fin.stl": {
+                "count": 1, 
+                "colour": "[0, 0.572549, 0]"
             }
         }, 
         "vitamins": {

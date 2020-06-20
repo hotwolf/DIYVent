@@ -1,3 +1,4 @@
 {
-    "vent_corner.stl": 83.32
+    "vent_corner.stl": 92.415, 
+    "frame_fin.stl": 2.451
 }

@@ -62,9 +62,9 @@ module frame() {
     
     color("brown")
     difference() {
-        translate([0,0,-10]) cube([310,310,20], center=true);
-        translate([0,0,-10]) cube([270,270,40], center=true);
-    }    
+        translate([0,0,-27]) cube([340,340,54], center=true);
+        translate([0,0,-30]) cube([270,270,60], center=true);
+    }            
 }
 
 //Repeating shapes
@@ -188,6 +188,36 @@ module vent_corner_stl () {
     }
 }
 
+//Frame mounted fin
+module frame_fin_stl () {
+    stl("frame_fin");
+
+    color(pp1_colour)
+    difference() {
+         union() {       
+            translate([55,-1,-40])   cube([80,2,40]);
+            translate([125,-1,-50])  cube([10,2,50]);
+            translate([133,-12,-50]) cube([2,24,50]);
+            
+            translate([133,1,0])
+            polyhedron( 
+                [[0,0,0],[0,0,-50],[-4,0,-50],[0,4,-50]],
+                [[0,1,3],[0,2,1],[0,3,2],[1,2,3]]);
+             
+            translate([133,-1,0])
+            polyhedron( 
+                [[0,0,0],[0,0,-50],[-4,0,-50],[0,-4,-50]],
+                [[0,1,3],[0,2,1],[0,3,2],[1,2,3]]);
+         }
+         union() {           
+            translate([130,-6,-25]) rotate([0,90,0]) cylinder(10,d=4);
+            translate([127,-6,-25]) rotate([0,90,0]) cylinder(6,d=10);
+            translate([130,6,-25])  rotate([0,90,0]) cylinder(10,d=4);
+            translate([127,6,-25]) rotate([0,90,0]) cylinder(6,d=10);            
+         }   
+    }
+}
+
 //! Glue all four corners of the vent cover together 
 //! Screw the cover against the wooden frame 
 module main_assembly() {
@@ -199,14 +229,27 @@ module main_assembly() {
             rotate([0,0,angle]) explode(d=10) vent_corner_stl();
         }
 
-        //Screws
+        //Cover Screws
         for(pos=$screwPositions) {
             translate([pos[0],pos[1],5]) explode(50) screw_and_washer($screwType, 20);
         }
+
+        //Frame mounted fins
+        for(angle=[0:90:0]) {
+            translate([0,0,-40])
+            rotate([0,0,angle]) explode(10) frame_fin_stl();
+        }
+
+
+
+
+
+
+
     }
 }
 
-if($preview) {
+//if($preview) {
     
    frame(); 
 //   innerMold(); 
@@ -216,4 +259,4 @@ if($preview) {
 //    vent_corner_stl();
     
    main_assembly();
-}
+//}
