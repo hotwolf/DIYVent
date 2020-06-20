@@ -192,6 +192,10 @@ module vent_corner_stl () {
 module frame_fin_stl () {
     stl("frame_fin");
 
+    //Local variables
+    washerDiameter = washer_diameter(screw_washer($screwType));
+    screwDiameter  = 2*screw_radius($screwType);
+
     color(pp1_colour)
     difference() {
          union() {       
@@ -210,16 +214,17 @@ module frame_fin_stl () {
                 [[0,1,3],[0,2,1],[0,3,2],[1,2,3]]);
          }
          union() {           
-            translate([130,-6,-25]) rotate([0,90,0]) cylinder(10,d=4);
-            translate([127,-6,-25]) rotate([0,90,0]) cylinder(6,d=10);
-            translate([130,6,-25])  rotate([0,90,0]) cylinder(10,d=4);
-            translate([127,6,-25]) rotate([0,90,0]) cylinder(6,d=10);            
+            translate([130,-6,-25]) rotate([0,90,0]) cylinder(10,d=screwDiameter);
+            translate([127,-6,-25]) rotate([0,90,0]) cylinder(6,d=washerDiameter);
+            translate([130,6,-25])  rotate([0,90,0]) cylinder(10,d=screwDiameter);
+            translate([127,6,-25]) rotate([0,90,0])  cylinder(6,d=washerDiameter);            
          }   
     }
 }
 
-//! Glue all four corners of the vent cover together 
-//! Screw the cover against the wooden frame 
+//! Glue all four corners of the vent cover together.
+//! Screw the cover against the wooden frame.
+//! Screw fins against the inside of the wooden frame 
 module main_assembly() {
     pose([70, 0, 110], [0,0,0])
     assembly("main") {
@@ -231,25 +236,25 @@ module main_assembly() {
 
         //Cover Screws
         for(pos=$screwPositions) {
-            translate([pos[0],pos[1],5]) explode(50) screw_and_washer($screwType, 20);
+          //translate([pos[0],pos[1],5]) explode(50) screw_and_washer($screwType, 20);
+            translate([pos[0],pos[1],5]) explode(50) screw_and_washer(No6_screw, 20);
         }
 
         //Frame mounted fins
-        for(angle=[0:90:0]) {
-            translate([0,0,-40])
-            rotate([0,0,angle]) explode(10) frame_fin_stl();
+        for(angle=[0:90:270]) {
+          //translate([0,0,-40])
+            rotate([0,0,angle]) explode(-80) frame_fin_stl();
         }
 
-
-
-
-
-
-
+        //Fin scews
+        for(angle=[0:90:270]) {
+            rotate([0,0,angle]) explode([-30,0,-80]) translate([133,-6,-25]) rotate([0,270,0]) screw_and_washer(No6_screw, 20);
+            rotate([0,0,angle]) explode([-30,0,-80]) translate([133,6,-25])  rotate([0,270,0]) screw_and_washer(No6_screw, 20);            
+        }
     }
 }
 
-//if($preview) {
+if($preview) {
     
    frame(); 
 //   innerMold(); 
@@ -259,4 +264,4 @@ module main_assembly() {
 //    vent_corner_stl();
     
    main_assembly();
-//}
+}
