@@ -21,7 +21,7 @@ Unfortunately, my new frame does not allow me to shut the right side window anym
 
 ![Mounted vent]({{ site.url }}/images/2020-06-22-vent_mounted.png)
 
-If I do a redesign of the vent cover, I'll leave out the wooden frame amn make a round fully printed shape, that fits very closely around the fan.
+If I do a redesign of the vent cover, I'll leave out the wooden frame and make a round fully printed shape that fits very closely around the fan.
 
 
 
